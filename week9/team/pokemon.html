@@ -46,7 +46,7 @@
     <script>
 
 function solution1(data){
-    return data.length
+    return 'data.length'
 }
 
 function solution2(data){
@@ -58,12 +58,14 @@ function solution3(data){
 }
 
 function solution4(data){
-    return 'TODO'
+    return _.last(_.sortBy(data, 'Attack')).Name
 }
 
 function solution5(data){
-    return 'TODO'
+    var group =  _.filter(data, {'Type': 'GRASS'})
+    return _.pluck(group, 'Name').join(', ')
 }
+
 
 function run(id, solutionFunc, data){
     console.log('run solution for ' + id)

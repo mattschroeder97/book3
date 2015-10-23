@@ -79,7 +79,8 @@
 var items   // global scope (i.e., can be accessed in javascript console)
 
 function solution1(){
-    return 'TODO'
+    var group = _.groupBy(items, function(n) {
+        return n['Image Id Str']
 }
 
 function solution2(){
@@ -91,8 +92,17 @@ function solution3(){
 }
 
 function solution4(){
-    return 'TODO'
+    var group = _.groupBy(items, function(n) {
+        return n['Image Id Str']
+    })   
+    var result = _.mapValues(group, function(n) { return _.filter(n, function(n) {
+        return _.includes(n['RT'], 'Retweet')
+    }))}
+    return _.size(result)
 }
+
+//
+var filter = _.filter(items, 'Rt' == 'Retweet')
 
 function solution5(){
     return 'TODO'
