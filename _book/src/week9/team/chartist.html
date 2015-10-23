@@ -48,17 +48,13 @@ var items   // global scope (i.e., can be accessed in javascript console)
 
 function solution1(){
     // TODO: replace the hard coded values in series by actual computation
-    var groups = _.groupBy(items, 'CrsPBADept')
-    var counts = _.mapValues(groups, function(g){
-        return g.length
-    })
     var data = {
-          labels: _.take(_.keys(counts), 5),
+          labels: ['HIST', 'HONR', 'HUMN', 'IAFS', 'IPHY'],
           series: [
-              _.take(_.values(counts), 5)
-            ]
+            [121,23,42,56,12]
+          ]
     }
-    new Chartist.Bar('#q1 .answer', data); 
+    new Chartist.Bar('#q1 .answer', data);
 }
 
 function solution2(){
@@ -79,54 +75,13 @@ function solution2(){
 
 
 function solution3(){
-  var groups = _.groupBy(items, 'CrsPBADept')
-    var counts = _.mapValues(groups, function(g){
-        return g.length
-    })
-    
-    var zipped = _.pairs(counts)
-    var course = _.filter(zipped, function(n) {return n[1] >= 100})
-    var unzipped = _.unzip(course)
-  
-    var data = {
-          labels: unzipped[0],
-          series: [
-            _.values(unzipped[1])
-          ]
-    }
-    new Chartist.Bar('#q3 .answer', data);
 }
 
 function solution4(){
-  var groups = _.groupBy(items, 'CrsPBADept')
-    var counts = _.mapValues(groups, function(g){
-        return g.length
-    })
-    var zipped = _.pairs(counts)
-    var course = _.sortBy(zipped, function(n) {return -n[1]})
-    var unzipped = _.unzip(course)
-
-    var data = {
-          labels: _.take(unzipped[0], 10),
-          series: [
-              _.take(_.values(unzipped[1]), 10)
-            ]
-    }
-    new Chartist.Bar('#q4 .answer', data);
 }
 
 function solution5(){
     // TODO: replace the hard coded values in series by actual computation
-    var groups = _.groupBy(items, 'CrsPBADept')
-  
-
-    var zip = _.pairs(groups)
-    var filterCourse = _.filter(zip, function(n) { return n['CrsPBADept'] == 'HIST' || n['CrsPBADept'] == 'CSCI'})
-    console.log("filterCourse", filterCourse)
-    var unzip = _.unzip(filterCourse)
-    console.log("unzip", unzip)
-    
-
     var data = {
           labels: ['1xxx', '2xxx', '3xxx', '4xxx'],
           series: [
